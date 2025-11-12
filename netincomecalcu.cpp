@@ -2,31 +2,26 @@
 using namespace std;
 
 int main() {
-    double grossIncome;
-    double taxRate;
-    double otherDeductions;
+    char choice;
+    do { 
+    double basicSalary, allowance, deduction, netSalary;
 
-    std::cout << "Enter your gross income: $";
-    std::cin >> grossIncome;
+    cout << "Enter Basic Salary: ";
+    cin >> basicSalary;
+    cout << "Enter Allowance: ";
+    cin >> allowance;
+    cout << "Enter Deduction: ";
+    cin >> deduction;
 
-    std::cout << "Enter your tax rate (as a decimal, example:, 0.15 for 15%): ";
-    std::cin >> taxRate;
+    netSalary = basicSalary + allowance - deduction;
 
-    std::cout << "Enter any other deductions (example:, insurance, retirement contributions): $";
-    std::cin >> otherDeductions;
+    cout << "Net Salary: " << netSalary << endl;
 
-    double taxAmount = grossIncome * taxRate;
+    cout << "Do you want to calculate again? (y/n): ";
+    cin >> choice;
 
-    double totalDeductions = taxAmount + otherDeductions;
-
-    double netIncome = grossIncome - totalDeductions;
-
-    std::cout << "\n--- Income Summary ---" << std::endl;
-    std::cout << "Gross Income: $" << grossIncome << std::endl;
-    std::cout << "Tax Amount:   $" << taxAmount << std::endl;
-    std::cout << "Other Deductions: $" << otherDeductions << std::endl;
-    std::cout << "Total Deductions: $" << totalDeductions << std::endl;
-    std::cout << "Net Income:   $" << netIncome << std::endl;
+    } while (choice == 'y' || choice == 'Y');
 
     return 0;
+
 }
